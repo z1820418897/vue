@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+
+</head>
+<body>
+
+<div id="app">
+    <h2>{{message}}</h2>
+    <h3 v-onec>{{message2}}</h3>
+    <span v-bind:id="span">{{spanText}}</span>
+    <li v-for="(item,index) in arr">{{index + '---' + item}}</li>
+    <button v-on:click="click">{{buttonText}}</button>
+    <h1 v-if="hIf=='1'">{{hIfText}}</h1><h1 v-else>{{hIfText2}}</h1>
+    <h2>{{message3}}</h2>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'最基本的绑定参数',
+            message2:'我是不可能改变的',
+            arr:['我','是','for','循','环'],
+            span:'span-id',
+            spanText:'我的id是使用v-bind绑定上的',
+            buttonText:'我可以测试点击事件',
+            hIf:'0',
+            hIfText:'我是用if判断正确才显示的',
+            hIfText2:'我是用if判断不正确才显示的else内容',
+            message3:'这都是基本控件，vue的官网上面可以找到更多的命令使用'
+        },
+        methods:{
+          click:function () {
+              alert('我是在method中定义的点击方法');
+          },
+          awesome:function(){
+              return false;
+          }
+        },
+        //...还有很多参数，例如声明周期的一堆
+    });
+</script>
+</body>
+</html>
